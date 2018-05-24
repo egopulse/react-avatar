@@ -1,11 +1,11 @@
-import React from 'react'
-import Konva from 'konva/src/Core'
-import 'konva/src/shapes/Image'
-import 'konva/src/shapes/Circle'
-import 'konva/src/shapes/Rect'
-import 'konva/src/shapes/Path'
-import 'konva/src/Animation'
-import 'konva/src/DragAndDrop'
+import 'konva/src/Animation';
+import Konva from 'konva/src/Core';
+import 'konva/src/DragAndDrop';
+import 'konva/src/shapes/Circle';
+import 'konva/src/shapes/Image';
+import 'konva/src/shapes/Path';
+import 'konva/src/shapes/Rect';
+import React from 'react';
 // import 'tracking' // TODO Face detection
 // import 'tracking/build/data/face'
 
@@ -318,8 +318,8 @@ class Avatar extends React.Component {
     return new Konva.Image({
       x: 0,
       y: 0,
-      width: this.width,
-      height: this.height,
+      width: this.props.imageWidth || this.width,
+      height: this.props.imgHeight || this.height,
       image: this.image
     })
   }
@@ -430,8 +430,8 @@ class Avatar extends React.Component {
       position: 'absolute',
       zIndex: 999,
       cursor: 'pointer',
-      left: '10px',
-      top: '10px'
+      left: '5px',
+      top: '5px'
     }
 
     return (
@@ -449,6 +449,9 @@ class Avatar extends React.Component {
                 <label htmlFor={this.loaderId} style={labelStyle}>{label}</label>
               </div>
             : <div style={style}>
+              {
+                this.props.visibeText && <label style={this.props.textCenterStyle}>{this.props.textCenter}</label>
+              }  
                 <svg
                   onClick={this.onCloseClick}
                   style={closeBtnStyle}

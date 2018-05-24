@@ -5,6 +5,16 @@
 import * as React from 'react';
 
 export interface Props {
+
+  label: string;
+  closeIconStyle: React.CSSProperties;
+  imgWidth: number;
+  imgHeight: number;
+
+  textCenter: string;
+  visibeText: boolean;
+  textCenterStyle: React.CSSProperties;
+
   /**
    * The Image object to display
    */
